@@ -93,7 +93,7 @@ $(function() {
   mapboxgl.accessToken = 'pk.eyJ1IjoicGpiIiwiYSI6ImNqYWJ0dmphdjEwaTgyeW51aHFiZWVxcDYifQ.qr1w1bDPh-RRRlRB9akknA'
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/dark-v10',
+    style: 'mapbox://styles/pjb/ck9ls6ikt13eb1io13yzmig11',
     zoom: 1.5
   })
 

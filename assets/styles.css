@@ -1,3 +1,8 @@
+@font-face {
+  font-family: BurbankSmall;
+  src: url(BurbankSmall-Black.otf) format('opentype');
+}
+
 html, body {
   padding: 0;
   margin: 0;
@@ -14,8 +19,6 @@ html, body {
 }
 
 #logo {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
   z-index: 900;
   position: fixed;
   top: 20px;
@@ -23,9 +26,11 @@ html, body {
 }
 
 h1 {
+  font: 2.4em BurbankSmall, sans-serif;
+  -webkit-text-stroke: 2px #444;
+  -webkit-text-fill-color: #FBF172;
   margin: 0;
   padding: 0;
-  color: white;
 }
 
 .mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right {
