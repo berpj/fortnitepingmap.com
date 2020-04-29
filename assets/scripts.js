@@ -1,3 +1,5 @@
+var userLat = null;
+var userLng = null;
 var p = new Ping()
 
 var servers = [
@@ -20,12 +22,61 @@ function runPing(server, map, index, callback) {
   })
 }
 
+function addLine(to, index, map) {
+  // Add line
+  var lineGeoJson = {
+    'type': 'FeatureCollection',
+    'features': [
+      {
+        'type': 'Feature',
+        'geometry': {
+          'coordinates': [[userLng, userLat], to],
+          'type': 'LineString'
+        }
+      }
+    ]
+  }
+
+    var id = Math.random().toString(36).substring(7)
+
+    map.addSource('line' + id, {
+      type: 'geojson',
+      lineMetrics: true,
+      data: lineGeoJson
+    })
+
+    map.addLayer({
+      type: 'line',
+      source: 'line' + id,
+      id: 'line' + id,
+      paint: {
+        'line-width': 8,
+        'line-gradient': [
+          'interpolate',
+          ['linear'],
+          ['line-progress'],
+          0,
+          'blue',
+          1,
+          'purple'
+        ]
+      },
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round'
+      }
+    })
+}
+
 function addServer(data, map, index) {
   // Only replace popup if lower ping or first ping
   if (servers[index].data == null || servers[index].data > data) {
     // Remove previous version of popup
-    if (servers[index].popup)
-      map.removeLayer(servers[index].popup)
+    if (servers[index].popup) {
+      servers[index].popup.remove()
+    } else {
+      addLine([servers[index].lng, servers[index].lat], index, map)
+    }
 
     servers[index].data = data
 
@@ -39,7 +90,7 @@ function addServer(data, map, index) {
 
 $(function() {
   // Init map
-  mapboxgl.accessToken = 'pk.eyJ1IjoicGpiIiwiYSI6ImNqYWJ0dmphdjEwaTgyeW51aHFiZWVxcDYifQ.qr1w1bDPh-RRRlRB9akknA';
+  mapboxgl.accessToken = 'pk.eyJ1IjoicGpiIiwiYSI6ImNqYWJ0dmphdjEwaTgyeW51aHFiZWVxcDYifQ.qr1w1bDPh-RRRlRB9akknA'
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v10',
@@ -54,20 +105,22 @@ $(function() {
     })
 
     if (++ran === 10)
-      window.clearInterval(intervalID)
+      window.clearInterval(interval)
   }, 2000)
 
   // Add user to map and center map
   $.get("https://freegeoip.app/json/", function (data) {
-    var lat = data.latitude;
-    var lng = data.longitude;
+    userLat = data.latitude
+    userLng = data.longitude
 
+    /*
     // Create marker
     var marker = new mapboxgl.Marker()
-    .setLngLat([lng, lat])
+    .setLngLat([userLng, userLat])
     .addTo(map)
+    */
 
     // Center map on marker
-    map.flyTo({ center: [lng, lat] });
+    map.flyTo({ center: [userLng, userLat] })
   }, "jsonp")
 })
