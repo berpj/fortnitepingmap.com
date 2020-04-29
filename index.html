@@ -8,14 +8,15 @@
   <meta name="description" content="Fortnite Ping Map">
   <link rel="stylesheet" href="/assets/styles.css">
   <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>
-  <h1>Fortnite Ping Map</h1>
+  <h1 id="logo">Fortnite Ping Map</h1>
 
-  <h2>Ping results:</h2>
-  <div id="ping_results">
-  </div>
+  <div id="map"></div>
 
   <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
   <script src="/assets/ping.min.js" type="text/javascript"></script>
