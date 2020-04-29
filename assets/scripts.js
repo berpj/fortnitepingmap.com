@@ -50,7 +50,7 @@ function addLine(to, index, map) {
       source: 'line' + id,
       id: 'line' + id,
       paint: {
-        'line-width': 8,
+        'line-width': 7,
         'line-gradient': [
           'interpolate',
           ['linear'],
@@ -82,7 +82,7 @@ function addServer(data, map, index) {
 
     servers[index].popup = new mapboxgl.Popup({ closeOnClick: false })
     .setLngLat([servers[index].lng, servers[index].lat])
-    .setHTML(servers[index].name + "<br>" + parseInt(data) + "ms")
+    .setHTML('<strong>' + servers[index].name + '</strong><br>' + parseInt(data) + 'ms')
     .addTo(map)
   }
 }
