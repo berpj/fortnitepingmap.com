@@ -36,3 +36,7 @@ h1 {
 .mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right {
   display: none!important;
 }
+
+.mapboxgl-popup {
+  font: 1.4em 'Open Sans', sans-serif;
+}

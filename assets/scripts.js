@@ -82,7 +82,7 @@ function addServer(data, map, index) {
 
     servers[index].popup = new mapboxgl.Popup({ closeOnClick: false, closeButton: false })
     .setLngLat([servers[index].lng, servers[index].lat])
-    .setHTML('<strong>' + servers[index].name + '</strong><br>' + parseInt(data) + 'ms')
+    .setHTML(servers[index].name + '<br><strong>' + parseInt(data) + 'ms</strong>')
     .addTo(map)
   }
 }
