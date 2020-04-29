@@ -50,7 +50,7 @@ function addLine(to, index, map) {
       source: 'line' + id,
       id: 'line' + id,
       paint: {
-        'line-width': 7,
+        'line-width': 6,
         'line-gradient': [
           'interpolate',
           ['linear'],
