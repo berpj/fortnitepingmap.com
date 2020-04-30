@@ -82,9 +82,9 @@ function addServer(data, map, index) {
     el.style.display = 'block'
     el.innerHTML = servers[index].name + '<br><strong>' + parseInt(data) + 'ms</strong>'
 
-    if (parseInt(data) <= 30)
+    if (parseInt(data) <= 40)
       el.classList.add('white')
-    else if (parseInt(data) <= 100)
+    else if (parseInt(data) <= 150)
       el.classList.add('orange')
     else
       el.classList.add('red')
