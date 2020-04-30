@@ -39,8 +39,9 @@ h1 .white{
 }
 
 .marker {
-  font: 1.8em BurbankSmall, sans-serif;
+  font: 2.15em BurbankSmall, sans-serif;
   -webkit-text-stroke: 2px #333;
+  text-align: center;
 }
 
 .marker strong {
@@ -48,15 +49,15 @@ h1 .white{
 }
 
 .marker.red {
-  -webkit-text-fill-color: #EA983D;
+  -webkit-text-fill-color: #D93122;
 }
 
 .marker.orange {
-  -webkit-text-fill-color: #FBF172;
+  -webkit-text-fill-color: #F0E754;
 }
 
 .marker.white {
-  -webkit-text-fill-color: white;
+  -webkit-text-fill-color: #C0EAF0;
 }
 
 .mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right {
