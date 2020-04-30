@@ -60,39 +60,39 @@ function addUser(lat, lng, map) {
   )
 }
 
-function addServer(data, map, index) {
-  // Fix data
-  data -= 3
-  data *= 0.8
+function addServer(latency, map, index) {
+  // Fix latency
+  latency -= 3
+  latency *= 0.8
 
-  if (data == 0)
-    data = 1
+  if (latency == 0)
+    latency = 1
 
-  // Only replace marker if lower ping or first ping
-  if (servers[index].latency == null || servers[index].latency > data) {
-    // Remove previous version of marker
-    if (servers[index].marker) {
-      servers[index].marker.remove()
-    }
-
-    servers[index].latency = data
-
-    var el = document.createElement('div')
-    el.className = 'marker'
-    el.style.display = 'block'
-    el.innerHTML = servers[index].name + '<br><strong>' + parseInt(data) + 'ms</strong>'
-
-    if (parseInt(data) <= 40)
-      el.classList.add('white')
-    else if (parseInt(data) <= 150)
-      el.classList.add('orange')
-    else
-      el.classList.add('red')
-
-    servers[index].marker = new mapboxgl.Marker(el)
-      .setLngLat([servers[index].lng, servers[index].lat])
-      .addTo(map)
+  // Remove previous version of marker
+  if (servers[index].marker) {
+    servers[index].marker.remove()
   }
+
+  servers[index].previousLatency = servers[index].latency
+  servers[index].latency = latency
+
+  latency = servers[index].previousLatency != null ? Math.min(servers[index].previousLatency, servers[index].latency) : latency
+
+  var el = document.createElement('div')
+  el.className = 'marker'
+  el.style.display = 'block'
+  el.innerHTML = servers[index].name + '<br><strong>' + parseInt(latency) + 'ms</strong>'
+
+  if (parseInt(latency) <= 40)
+    el.classList.add('white')
+  else if (parseInt(latency) <= 150)
+    el.classList.add('orange')
+  else
+    el.classList.add('red')
+
+  servers[index].marker = new mapboxgl.Marker(el)
+    .setLngLat([servers[index].lng, servers[index].lat])
+    .addTo(map)
 }
 
 
