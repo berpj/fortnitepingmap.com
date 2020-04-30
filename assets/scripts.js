@@ -61,6 +61,13 @@ function addUser(lat, lng, map) {
 }
 
 function addServer(data, map, index) {
+  // Fix data
+  data -= 3
+  data *= 0.8
+
+  if (data == 0)
+    data = 1
+
   // Only replace marker if lower ping or first ping
   if (servers[index].latency == null || servers[index].latency > data) {
     // Remove previous version of marker
@@ -75,9 +82,9 @@ function addServer(data, map, index) {
     el.style.display = 'block'
     el.innerHTML = servers[index].name + '<br><strong>' + parseInt(data) + 'ms</strong>'
 
-    if (parseInt(data) <= 40)
+    if (parseInt(data) <= 30)
       el.classList.add('white')
-    else if (parseInt(data) <= 150)
+    else if (parseInt(data) <= 100)
       el.classList.add('orange')
     else
       el.classList.add('red')
