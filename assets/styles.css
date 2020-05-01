@@ -76,7 +76,7 @@ h1 .white {
 #by {
   z-index: 900;
   position: fixed;
-  bottom: 50px;
+  bottom: 30px;
   right: 0;
   background-color: #14354A;
   opacity: 0.8;
