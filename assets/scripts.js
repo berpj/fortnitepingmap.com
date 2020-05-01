@@ -102,7 +102,7 @@ $(function() {
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/pjb/ck9ls6ikt13eb1io13yzmig11',
-    zoom: 1.5
+    zoom: $(window).width() / 1010
   })
 
   // Add servers to map and rerun every 2 seconds

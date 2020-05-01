@@ -39,6 +39,12 @@ h1 {
   }
 }
 
+@media (min-width : 1920px) {
+  h1 {
+    font-size: 2.5em;
+  }
+}
+
 h1 .white {
   font-size: 0.7em;
   -webkit-text-fill-color: white;
@@ -63,6 +69,13 @@ h1 .white {
   #description {
     font-size: 1em;
     top: 55px;
+  }
+}
+
+@media (min-width : 1920px) {
+  #description {
+    font-size: 1.4em;
+    top: 65px;
   }
 }
 
@@ -118,6 +131,12 @@ h1 .white {
 @media (max-width : 768px) {
   .marker {
     font-size: 2em;
+  }
+}
+
+@media (min-width : 1920px) {
+  .marker {
+    font-size: 3em;
   }
 }
 
