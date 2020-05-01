@@ -25,6 +25,19 @@ html, body {
   left: 20px;
 }
 
+#description {
+  z-index: 900;
+  position: fixed;
+  top: 72px;
+  left: 20px;
+  font-family: BurbankSmall;
+  color: white;
+  line-height: 24px;
+  font-size: 1.1em;
+  max-width: 600px;
+  text-align: justify;
+}
+
 #by {
   z-index: 900;
   position: fixed;
