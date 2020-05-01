@@ -13,12 +13,31 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <script>
+    window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+    return t;
+  }(document, "script", "twitter-wjs"));
+</script>
 </head>
 
 <body>
   <h1 id="logo">FortnitePingMap<span class="white">.com</spam></h1>
   <div id="description">
-    This map shows you the latency (aka ping) between your device and Fortnite servers around the world.
+    This map shows you the latency (aka ping) between your device and Fortnite servers around the world.<br>
+    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Yo%20why%20is%20my%20ping%20so%20bad%20in%20china" data-size="large">Tweet</a>
   </div>
 
   <div id="map"></div>
