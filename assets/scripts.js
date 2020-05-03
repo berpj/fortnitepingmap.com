@@ -28,7 +28,7 @@ function runPing(server, map, index, callback) {
 
 function addUser(lat, lng, map) {
   map.loadImage(
-    '/assets/user.png',
+    '/assets/br.png',
     function(error, image) {
       if (error) throw error;
       map.addImage('user', image);
@@ -53,7 +53,7 @@ function addUser(lat, lng, map) {
         'source': 'point',
         'layout': {
           'icon-image': 'user',
-          'icon-size': 1
+          'icon-size': 0.18
         }
       })
     }
